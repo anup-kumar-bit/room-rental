@@ -8,5 +8,9 @@ class Settings(BaseSettings):
 
     database_url: str
 
+    jwt_secret: str = "123"
+    jwt_algorithm: str = "HS256"
+    jwt_expirein: int = 30
+
 
 settings = Settings()
