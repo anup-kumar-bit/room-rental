@@ -1,14 +1,18 @@
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 
 
 # ========================== REQUEST SCHEMA ==============================
 # ---- Admin Based ROLE ----
+class CreateRoleRequest(BaseModel):
+    role_name: str = Field(min_length=1, max_length=50)
+
+
 class AdminRole(BaseModel):
     id: int
-    role_name: str
+    role_name: str = Field(min_length=1, max_length=50)
 
 
-# ========================== REQUEST SCHEMA ==============================
+# ========================== RESPONSE SCHEMA ==============================
 class AdminRoleResponse(BaseModel):
     id: int
     role_name: str
